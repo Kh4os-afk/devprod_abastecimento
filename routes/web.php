@@ -2,6 +2,6 @@
 
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/',\App\Livewire\Index::class);
+Route::get('/abastecimento',\App\Livewire\Abastecimento::class);
+Route::get('/abastecimento/show', \App\Livewire\AbastecimentoShow::class)->name('abastecimento.show');
