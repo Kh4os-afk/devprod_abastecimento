@@ -110,12 +110,13 @@ class Abastecimento extends Component
             return !is_null($valor) && $valor !== '';
         });
 
-        if ($filtrosPreenchidos->count() < 2) {
+        if ($filtrosPreenchidos->isEmpty()) {
             Flux::toast(
                 heading: 'Atenção',
-                text: 'Por favor, selecione ao menos 2 filtros para continuar.',
+                text: 'Por favor, selecione ao menos 1 filtro para continuar.',
                 variant: 'warning',
             );
+            return;
         }
 
         return redirect()->to(route('abastecimento.show', $query));
